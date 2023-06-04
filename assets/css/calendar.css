@@ -1,0 +1,28 @@
+/* ... previous CSS code ... */
+
+.calendar-section {
+  margin-top: 40px;
+}
+
+.calendar-section h2 {
+  text-align: center;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 20px;
+}
+
+#calendar td {
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#calendar td:hover {
+  background-color: #f2f2f2;
+}
+
