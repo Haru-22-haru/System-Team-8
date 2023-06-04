@@ -24,7 +24,7 @@ document.getElementById("signinpublicForm").addEventListener("submit", function(
   } else if (password === "password") {
       document.getElementById('errorMessage').textContent = 'Email not found in records.';
   } else {
-      document.getElementById('errorMessage').textContent = 'Email and password not match.';
+      document.getElementById('errorMessage').textContent = 'Email and password not found in records.';
   }
 
 });
