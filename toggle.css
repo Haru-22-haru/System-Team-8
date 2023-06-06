@@ -1,0 +1,36 @@
+#content {
+    display: none;
+  }
+.toggle-button {
+  position: relative;
+  background-color: gray;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 20px;
+  width: 30px;
+  outline: none;
+  cursor: pointer;
+  font-size: 5px;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(0, -50%);
+  width: 13px;
+  height: 13px;
+  background-color: white;
+  border-color: black;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.toggle-button.on {
+  background-color: blue;
+}
+
+.toggle-button.on .circle {
+  transform: translate(80%, -50%);
+}

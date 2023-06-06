@@ -2,26 +2,7 @@ body {
   background-color: #F5F4F5;
 }
 
-/*index*/
-.navbar {
-  border-bottom: 3px ridge rgba(33,37,41,0.17);
-}
-
-.btn {
-  color: white;
-  background: #045b62;
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
-  border-style: none;
-  border-color: #045b62;
-}
-
-/*Noticication.html*/
-
-
-
-
-
-.containercard{
+.containercard {
   margin-left: 50px;
 }
 
@@ -48,17 +29,15 @@ body {
   font-size: 12px;
 }
 
-
 #signinButton {
-  width: 100px; /* Adjust the width as desired */
+  width: 100px;
   transform: translateX(130px);
 }
 
 #signupButton {
-  width: 100px; /* Adjust the width as desired */
+  width: 100px;
   transform: translate(130px, 10px);
 }
-
 
 .form-group {
   margin-bottom: 20px;
@@ -100,3 +79,4 @@ body {
   margin: 0 10px;
   font-weight: bold;
 }
+
