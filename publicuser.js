@@ -18,7 +18,7 @@ document.getElementById("signinpublicForm").addEventListener("submit", function(
 
 
   if (email === "haru22@gmail.com" && password === "password") {
-      window.location.href = 'signedin.html';
+      window.location.href = 'HomeSignedIn.html';
   } else if (email === "admin") {
       document.getElementById('errorMessage').textContent = 'Incorrect password.';
   } else if (password === "password") {

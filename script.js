@@ -16,7 +16,7 @@ document.getElementById("signinForm").addEventListener("submit", function(event)
   
   
     if (username === "admin" && password === "password") {
-        window.location.href = 'signedin.html';
+        window.location.href = 'HomeSignedIn.html';
     } else if (username === "admin") {
         document.getElementById('errorMessage').textContent = 'Incorrect password.';
     } else if (password === "password") {
