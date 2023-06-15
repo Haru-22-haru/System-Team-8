@@ -1,34 +1,445 @@
-.container {
-    width: 500px;
-    margin: 0 auto;
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'Barlow', sans-serif;
+}
+.lalagyan {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  max-width: 1020px;
+  max-height: 500px;
+}
+.quick-actions {
+  height: 500px;
+  width: 250px;
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 12px 0 0 12px;
+}
+.quick-actions h2 {
+  margin-right: 60px;
+  padding-bottom: 10px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.quick-actions .button-column {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.quick-actions button {
+  margin: 0 0 10px 30px  ;
+  padding: 7px;
+  border: 1px solid #D9D9D9;
+  background-color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.quick-action-button.clicked {
+  background-color: rgba(255, 0, 255, 0.605);
+  color: white; /* Add this line to set the font color to white */
+}
+.fully-booked {
+  background-color: rgba(227, 99, 99, 0.3);
+  color: white;
+  /* Add any other styling you desire */
+}
+
+.calendar{
+  height: 500px;
+  width: 450px;
+  background-color: white;
+  overflow: hidden;
+  padding: 0px 50px 0px 50px;
+  box-shadow: var(--shadow);
+}
+.calendar h2{
+  margin-top: 10px;
+  margin-left: -20px;
+  justify-content: left;
+  text-align: left;
+  font-weight: 700;
+  font-size: 14px;
+}
+.calendar-header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+}
+.calendar-body{
+  height: 250px;
+  pad: 10px;
+}
+.calendar-week-days{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: 600;
+  color: rgb(104, 104, 104);
+}
+.calendar-week-days div{
+  display: grid;
+  place-items: center;
+  color: var(--bg-second);
+  height: 50px;
+}
+.calendar-days{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  color: var(--color-txt);
+}
+.calendar-days div{
+  width: 20px;
+  height: 33px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  animation: to top 1s forwards;
+}
+.year-month-picker {
+  color: #010101;
+  padding: 10px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.year-picker {
+  font-size: 18px;
+}
+.year-change {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  margin-right: 5px;
+}
+#pre-year {
+  margin-right: 100px;
+  color: #010101;
+}
+#next-year {
+  margin-left: 100px;
+  color: #010101;
+}
+.year-change:hover {
+  background-color: var(--light-btn);
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.12);
+}
+.year-change:hover pre {
+  color: var(--bg-body);
+}
+.calendar-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#year {
+  padding: 5px;
+}
+#year:hover {
+  cursor: pointer;
+}
+.calendar-days div span{
+  position: relative;
+}
+.calendar-days div:hover{
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.24);
+  border-radius: 20%;
+  color: var(--dark-text);
+}
+.label-box {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  cursor: not-allowed;
+  user-select: none;
+  border-radius: 4px;
+}
+.label {
+  font-weight: 700;
+  margin-right: 10px;
+}
+
+.button-like {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+}
+
+#selected-date-label,
+#fully-booked-dates-label {
+  /* Additional styles for button-like appearance */
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#selected-date-label {
+  background-color: magenta;
+  color: #fff;
+}
+
+#fully-booked-dates-label {
+  background-color: rgba(227, 99, 99, 0.3);
+  color: #333;
+}
+.month-list{
+  position: relative;
+  left: 0;
+  background-color: #ebebeb;
+  color: var(--light-text);
+  display: grid;
+  grid-template-columns:  repeat(3,auto);
+  gap: 5px;
+  border-radius: 20px;
+  transform: translateY(-200px);
+}
+.month-list > div{
+  display: grid;
+  place-content: center;
+  margin: 5px 10px;
+  transition: all 0.2 ease-in-out;
+}
+.month-list > div > div{
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+}
+.month-list > div > div:hover{
+  background-color: var(--light-btn);
+  color: var(--dark-text);
+  transform: scale(0.9);
+  transition: all 0.2 ease-in-out;
+}
+.month-list .show{
+  visibility: visible;
+  pointer-events: visible;
+  transition: 0.6 ease-in-out;
+  animation: to left .71s forwards;
+}
+.month-list.hideonce{
+  visibility: hidden;
+}
+.month-list.hide{
+  animation: to right 1s forwards;
+  visibility: none;
+  pointer-events: none;
+}
+.date-time-formate{
+  width: max-content;
+  height: max-content;
+  font-family: Dubai Light, Century Gothic;
+  position: relative;
+  display: inline;
+  top: 140px;
+  justify-content: center;
+}
+.day-text-formate{
+  font-family: Microsoft JhengHei UI;
+  font-size: 1.4rem;
+  padding-right: 5%;
+  border-right: 3px solid #363b3b;
+  position: absolute;
+  left: -1rem;
+  left: 5%;
+}
+.date-time-value{
+  display: block;
+  height: max-content;
+  width: max-content;
+  position: relative;
+  left: 55%;
+  top: -18px;
+  justify-content: center;
+  text-align: center;
+}
+.text-formate{
+  font-size: 1.5rem;
+}
+.time-formate.hideTime{
+  animation : hidetime 1.5s forwards;
+}
+.day-text-formate.hideTime{
+  animation: hidetime 1.5s forwards;
+}
+.date-formate.hideTime{
+  animation: hidetime 1.5s forwards;
+}
+.day-text-formate.showtime{
+  animation: showtime 1s forwards;
+}
+.time-formate.showtime{
+  animation: showtime 1s forwards;
+}
+.date-formate.showtime{
+  animation: showtime 1s forwards;
+}
+@keyframes to-top{
+  0%{
+      transform: translateY(0);
+      opacity: 0;
+  }100%{
+      transform: translateY(100%);
+      opacity: 1;
   }
-  
-  form {
-    display: none;
+}
+@keyframes to-left{
+  0%{
+      transform: translateX(230%);
+      opacity: 1;
+  }100%{
+      transform: translateX(230%);
+      opacity: 1;
   }
-  
-  form.active-form {
-    display: block;
+}
+@keyframes to-right{
+  10%{
+      transform: translateX(0%);
+      opacity: 1;
+  }100%{
+      transform: translateX(-150%);
+      opacity: 1;
   }
-  
-  label {
-    display: block;
-    margin-top: 10px;
+}
+@keyframes showtime{
+  0%{
+      transform: translateX(250%);
+      opacity: 1;
+  }100%{
+      transform: translateX(0%);
+      opacity: 1;
   }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"] {
-    width: 100%;
-    padding: 5px;
-    margin-top: 5px;
+}
+@keyframes hideTime{
+  0%{
+      transform: translateX(0%);
+      opacity: 1;
+  }100%{
+      transform: translateX(-370%);
+      opacity: 1;
   }
-  
-  button {
-    margin-top: 10px;
+}
+@media (max-width:375px){
+  .month-list>div{
+      margin: 5px 0px;
   }
-  
-  .btn-container {
-    text-align: right;
-  }
-  
+}
+
+.selected-date-label,
+.fully-booked-date-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 12px;
+  flex-basis: 28%;
+}
+.selected-date-label {
+  background-color: #dddddd;
+  color: rgba(255, 0, 255, 0.605);
+  padding: 5px;
+  border-radius: 3px;
+  margin-left: 50px;
+  margin-top: 10px;
+}
+.fully-booked-date-label {
+  background: rgba(227, 99, 99, 0.3);
+  color: #B82319;
+  padding: 5px;
+  border-radius: 3px;
+  margin-right: 50px;
+  margin-top: 10px;
+  display: inline-block;
+}
+.time-picker {
+  height: 500px;
+  width: 305px;
+  background-color: #ffffff;
+  text-align: start;
+  border-radius: 0 12px 12px 0;
+}
+.time-picker-header {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.time-picker-header h2{
+  font-weight: 700;
+  font-size: 14px;
+  margin-left: 20px;
+}
+.time-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  list-style: none;
+  padding: 0 20px;
+  margin-top: 20px;
+}
+.time-option {
+  display: flex;
+  height: 44px;
+  width: 124px;
+}
+.time-option input[type="radio"] {
+  display: none;
+}
+.time-option label {
+  flex-grow: 1;
+  padding: 5px;
+  border: 1px solid #D9D9D9;
+  background-color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.time-option input[type="radio"]:checked + label {
+  background-color: rgba(255, 0, 255, 0.605);
+  color: #ffffff;
+}
+.fc-day-number {
+  font-size: 12px;
+}
+.fc-day-grid-container {
+  overflow: hidden !important;
+}
+.booked-appointment {
+  background: rgba(227, 99, 99, 0.3);
+  color: #ffffff;
+  cursor: not-allowed;
+}
+.fc-row {
+  min-height: calc((100% - 10px) / 2);
+}
+.booked-appointment {
+  cursor: not-allowed;
+}

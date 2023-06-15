@@ -1,114 +1,250 @@
-// Helper function to get the number of days in a month
-function getDaysInMonth(year, month) {
-    return new Date(year, month, 0).getDate();
-  }
+const isLeapYear = (year) => {
+  return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+};
+
+const getFebDays = (year) => {
+  return isLeapYear(year) ? 29 : 28;
+};
+
+let calendar = document.querySelector('.calendar');
+const month_names = [
+  'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
+  'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'
+];
+let month_picker = document.querySelector('#month-picker');
+let month_list = calendar.querySelector('.month-list');
+
+let year_month_picker = document.querySelector('#year-month-picker');
+
+year_month_picker.onclick = () => {
+  month_list.classList.toggle('hideonce');
+  month_list.classList.toggle('show');
+};
+
+
+const generateCalendar = (month, year) => {
+  let calendar_days = document.querySelector('.calendar-days');
+  calendar_days.innerHTML = '';
+  let calendar_header_year = document.querySelector('#year');
+  let days_of_month = [
+    31, getFebDays(year), 31, 30, 31, 30,
+    31, 31, 30, 31, 30, 31
+  ];
   
-  // Function to generate the calendar
-  function generateCalendar(year, month) {
-    const calendarBody = document.getElementById('calendar-body');
-    calendarBody.innerHTML = '';
-  
-    const firstDay = new Date(year, month - 1, 1).getDay();
-    const daysInMonth = getDaysInMonth(year, month);
-  
-    let date = 1;
-  
-    for (let i = 0; i < 6; i++) {
-      const row = document.createElement('tr');
-  
-      for (let j = 0; j < 7; j++) {
-        if (i === 0 && j < firstDay) {
-          const cell = document.createElement('td');
-          row.appendChild(cell);
-        } else if (date > daysInMonth) {
-          break;
-        } else {
-          const cell = document.createElement('td');
-          cell.textContent = date;
-          cell.addEventListener('click', function() {
-            // Handle date selection logic here
-            console.log(`Selected date: ${year}-${month}-${date}`);
-          });
-          row.appendChild(cell);
-          date++;
-        }
+  let currentDate = new Date();
+  month_picker.innerHTML = month_names[month];
+  calendar_header_year.innerHTML = year;
+  let first_day = new Date(year, month);
+
+  for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
+    let day = document.createElement('div');
+    if (i >= first_day.getDay()) {
+      let dayNumber = i - first_day.getDay() + 1;
+      day.innerHTML = dayNumber;
+
+      if (
+        dayNumber === currentDate.getDate() &&
+        year === currentDate.getFullYear() &&
+        month === currentDate.getMonth()
+      ) {
+        day.classList.add('current-date');
       }
-  
-      calendarBody.appendChild(row);
+
+      if (isDayFullyBooked(dayNumber, month, year)) {
+        day.classList.add('fully-booked');
+      }
     }
+    calendar_days.appendChild(day);
+    day.addEventListener('click', () => selectDay(day));
   }
-  
-  // Function to navigate to the previous month
-  function previousMonth() {
-    const monthSelect = document.getElementById('month');
-    const yearSelect = document.getElementById('year');
-  
-    let month = parseInt(monthSelect.value);
-    let year = parseInt(yearSelect.value);
-  
-    if (month === 1) {
-      month = 12;
-      year--;
-    } else {
-      month--;
-    }
-  
-    monthSelect.value = month;
-    yearSelect.value = year;
-  
-    generateCalendar(year, month);
-  }
-  
-  // Function to navigate to the next month
-  function nextMonth() {
-    const monthSelect = document.getElementById('month');
-    const yearSelect = document.getElementById('year');
-  
-    let month = parseInt(monthSelect.value);
-    let year = parseInt(yearSelect.value);
-  
-    if (month === 12) {
-      month = 1;
-      year++;
-    } else {
-      month++;
-    }
-  
-    monthSelect.value = month;
-    yearSelect.value = year;
-  
-    generateCalendar(year, month);
-  }
-  
-  window.onload = function() {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
-  
-    const monthSelect = document.getElementById('month');
-    const yearSelect = document.getElementById('year');
-  
-    // Populate month options
-    for (let i = 1; i <= 12; i++) {
-      const option = document.createElement('option');
-      option.value = i;
-      option.textContent = new Date(0, i - 1).toLocaleString('default', { month: 'long' });
-      monthSelect.appendChild(option);
-    }
-  
-    // Populate year options
-    for (let i = currentYear; i <= currentYear + 10; i++) {
-      const option = document.createElement('option');
-      option.value = i;
-      option.textContent = i;
-      yearSelect.appendChild(option);
-    }
-  
-    // Set initial values for month and year selects
-    monthSelect.value = currentMonth;
-    yearSelect.value = currentYear;
-  
-    // Generate calendar for current month
-    generateCalendar(currentYear, currentMonth);
+};
+
+
+
+// Function to check if a day is fully booked
+const isDayFullyBooked = (day, month, year) => {
+  // Example logic to determine if a day is fully booked
+  // You can replace this with your own logic
+  const fullyBookedDates = [5, 10, 15, 20]; // Array of fully booked dates
+
+  // Check if the day is present in the fully booked dates array
+  return fullyBookedDates.includes(day);
+};
+
+
+month_names.forEach((e, index) => {
+  let month = document.createElement('div');
+  month.innerHTML = `<div> ${e} </div>`;
+  month_list.append(month);
+  month.onclick = () => {
+    currentMonth.value = index;
+    generateCalendar(currentMonth.value, currentYear.value);
+    month_list.classList.replace('show', 'hideonce');
   };
-  
+});
+
+(function () {
+  month_list.classList.add('hideonce');
+})();
+
+document.querySelector('#pre-year').onclick = () => {
+  if (currentMonth.value === 0) {
+    --currentYear.value;
+    currentMonth.value = 11;
+  } else {
+    --currentMonth.value;
+  }
+  generateCalendar(currentMonth.value, currentYear.value);
+};
+
+document.querySelector('#next-year').onclick = () => {
+  if (currentMonth.value === 11) {
+    ++currentYear.value;
+    currentMonth.value = 0;
+  } else {
+    ++currentMonth.value;
+  }
+  generateCalendar(currentMonth.value, currentYear.value);
+};
+
+let currentDate = new Date();
+let currentMonth = { value: currentDate.getMonth() };
+let currentYear = { value: currentDate.getFullYear() };
+generateCalendar(currentMonth.value, currentYear.value);
+
+const todayButton = document.querySelector('#today-button');
+const tomorrowButton = document.querySelector('#tomorrow-button');
+const nextWeekButton = document.querySelector('#next-week-button');
+const nextMonthButton = document.querySelector('#next-month-button');
+const nextYearButton = document.querySelector('#next-year-button');
+
+// Array to store all the quick action buttons
+const quickActionButtons = [todayButton, tomorrowButton, nextWeekButton, nextMonthButton, nextYearButton];
+
+// Function to reset the button styles and remove the magenta color
+const resetButtonStyles = () => {
+  quickActionButtons.forEach((button) => {
+    button.style.backgroundColor = '';
+  });
+};
+
+// Function to mark the selected button as magenta and perform the corresponding action
+const markSelectedButton = (button) => {
+  resetButtonStyles();
+  button.style.backgroundColor = 'rgba(255, 0, 255, 0.605)';
+};
+
+todayButton.onclick = () => {
+  const currentDate = new Date();
+  currentMonth.value = currentDate.getMonth();
+  currentYear.value = currentDate.getFullYear();
+
+  generateCalendar(currentMonth.value, currentYear.value);
+
+  const currentDay = currentDate.getDate();
+  const calendarDays = document.querySelectorAll('.calendar-days div');
+
+  calendarDays.forEach((day) => {
+    const dayNumber = parseInt(day.innerHTML);
+    if (dayNumber === currentDay) {
+      day.style.backgroundColor = 'rgba(0, 0, 0, 0.24)';
+      day.style.color = '#A80CA6';
+    } else {
+      day.style.backgroundColor = '';
+    }
+  });
+
+  markSelectedButton(todayButton);
+};
+
+
+tomorrowButton.onclick = () => {
+  const currentDate = new Date();
+  const tomorrowDate = new Date();
+  tomorrowDate.setDate(currentDate.getDate() + 1);
+  const tomorrowDay = tomorrowDate.getDate();
+  const calendarDays = document.querySelectorAll('.calendar-days div');
+
+  calendarDays.forEach((day) => {
+    const dayNumber = parseInt(day.innerHTML);
+    if (dayNumber === tomorrowDay) {
+      day.style.backgroundColor = 'rgba(0, 0, 0, 0.24)';
+      day.style.color = '#A80CA6';
+    } else {
+      day.style.backgroundColor = '';
+    }
+  });
+
+  markSelectedButton(tomorrowButton);
+};
+
+nextWeekButton.onclick = () => {
+  const currentDate = new Date();
+  const nextWeekDate = new Date();
+  nextWeekDate.setDate(currentDate.getDate() + 7);
+  const nextWeekDay = nextWeekDate.getDate();
+  const calendarDays = document.querySelectorAll('.calendar-days div');
+
+  calendarDays.forEach((day) => {
+    const dayNumber = parseInt(day.innerHTML);
+    if (dayNumber === nextWeekDay) {
+      day.style.backgroundColor = 'rgba(0, 0, 0, 0.24)';
+      day.style.color = '#A80CA6';
+    } else {
+      day.style.backgroundColor = '';
+    }
+  });
+
+  markSelectedButton(nextWeekButton);
+};
+
+nextMonthButton.onclick = () => {
+  if (currentMonth.value === 11) {
+    ++currentYear.value;
+    currentMonth.value = 0;
+  } else {
+    ++currentMonth.value;
+  }
+
+  generateCalendar(currentMonth.value, currentYear.value);
+
+  const currentDate = new Date();
+  const selectedDate = new Date(currentYear.value, currentMonth.value, currentDate.getDate());
+  const selectedDay = selectedDate.getDate();
+  const calendarDays = document.querySelectorAll('.calendar-days div');
+
+  calendarDays.forEach((day) => {
+    const dayNumber = parseInt(day.innerHTML);
+    if (dayNumber === selectedDay) {
+      day.style.backgroundColor = 'rgba(0, 0, 0, 0.24)';
+      day.style.color = '#A80CA6';
+    } else {
+      day.style.backgroundColor = '';
+    }
+  });
+
+  markSelectedButton(nextMonthButton);
+};
+
+nextYearButton.onclick = () => {
+  ++currentYear.value;
+
+  generateCalendar(currentMonth.value, currentYear.value);
+
+  const currentDate = new Date();
+  const selectedDate = new Date(currentYear.value, currentMonth.value, currentDate.getDate());
+  const selectedDay = selectedDate.getDate();
+  const calendarDays = document.querySelectorAll('.calendar-days div');
+
+  calendarDays.forEach((day) => {
+    const dayNumber = parseInt(day.innerHTML);
+    if (dayNumber === selectedDay) {
+      day.style.backgroundColor = 'rgba(0, 0, 0, 0.24)';
+      day.style.color = '#A80CA6';
+    } else {
+      day.style.backgroundColor = '';
+    }
+  });
+
+  markSelectedButton(nextYearButton);
+};

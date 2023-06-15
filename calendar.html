@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap'">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+  <div class="container">
+    <div class="quick-actions">
+      <h2>QUICK ACTIONS</h2>
+      <div class="button-column">
+        <button class="quick-action-button" id="today-button">Today</button>
+        <button class="quick-action-button" id="tomorrow-button">Tomorrow</button>
+        <button class="quick-action-button" id="next-week-button">Next Week</button>
+        <button class="quick-action-button" id="next-month-button">Next Month</button>
+        <button class="quick-action-button" id="next-year-button">Next Year</button>
+      </div>
+    </div>
+    <div class="calendar">
+      <h2>SELECT DATE</h2>
+      <div class="calendar-header">
+        <span class="year-change" id="pre-year">
+          <
+        </span>
+          <div class="year-month-picker" id="year-month-picker">
+            <span class="month-picker" id="month-picker">June</span>
+            <span id="year">2023 </span>
+          </div>
+          <span class="year-change" id="next-year">
+            >
+        </span>
+      </div>
+      <div class="calendar-body">
+          <div class="calendar-week-days">
+              <div>Sun</div>
+              <div>Mon</div>
+              <div>Tue</div>
+              <div>Wed</div>
+              <div>Thu</div>
+              <div>Fri</div>
+              <div>Sat</div>
+          </div>
+          <div class="calendar-days">
+          </div>
+      </div>
+      <div class="calendar-footer">   
+        <div class="label-box">
+          <span class="label">Selected Date:</span>
+          <span class="button-like" id="selected-date-label"><span></span></span>
+        </div>
+        <div class="label-box">
+          <span class="label">Fully Booked Dates:</span>
+          <span class="button-like" id="fully-booked-dates-label"><span></span></span>
+        </div>
+      </div>
+      <div class="month-list"></div>
+  </div>
+    <div class="time-picker">
+      <div class="time-picker-header">
+        <h2>SELECT TIME</h2>
+      </div>
+      <ul class="time-options">
+        <li class="time-option">
+          <input type="radio" id="time1" name="time" value="09:00 AM">
+          <label for="time1">09:00 AM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time2" name="time" value="09:30 AM">
+          <label for="time2">09:30 AM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time3" name="time" value="10:00 AM">
+          <label for="time3">10:00 AM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time4" name="time" value="10:30 AM">
+          <label for="time4">10:30 AM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time5" name="time" value="11:00 AM">
+          <label for="time5">11:00 AM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time6" name="time" value="11:30 AM">
+          <label for="time6">11:30 AM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time7" name="time" value="01:00 PM">
+          <label for="time7">01:00 PM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time8" name="time" value="01:30 PM">
+          <label for="time8">01:30 PM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time9" name="time" value="02:00 PM">
+          <label for="time9">02:00 PM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time10" name="time" value="02:30 PM">
+          <label for="time10">02:30 PM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time11" name="time" value="03:00 PM">
+          <label for="time11">03:00 PM</label>
+        </li>
+        <li class="time-option">
+          <input type="radio" id="time12" name="time" value="03:30 PM">
+          <label for="time12">03:30 PM</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="calendar.js"></script>
+  
+</body>
+</html>
