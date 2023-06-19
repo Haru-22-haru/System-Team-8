@@ -184,7 +184,7 @@
                   <h2>SELECT TIME</h2>
                 </div>
                 <div class="timeoptions" id="time-options">
-                  <ul class="time-options">
+                  <ul class="time-options" >
                     <li class="time-option">
                       <input type="radio" id="time1" name="time" value="09:00 AM">
                       <label for="time1">09:00 AM</label>
@@ -236,8 +236,8 @@
                 </ul>
                 </div> 
               <div class="row" style="height: 40px;width: 90px; border-radius: 10px; margin-top: 90px; margin-left: 175px;">
-                <div class="col-xxl-12" style="height: 40px;width: 90px;"><button class="btn btn-primary" type="submit" onclick="showForm('form3')" style="width: 90px;height: 40px;border-radius: 10px;background: #045B62; box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.1);border-radius: 10px; border-style: none;">Next</button></div>
-            </div>
+                <div class="col-xxl-12" style="height: 40px;width: 90px;"><button class="btn btn-primary" type="submit" onclick="showForm('form3')" id="nextButton2" style="width: 90px;height: 40px;border-radius: 10px;background: #045B62; box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.1);border-radius: 10px; border-style: none;" disabled >Next</button></div>
+              </div>
             </div>
           </div>
         </div> 
@@ -342,6 +342,7 @@ function submitForm2(){
   // Set the values in Form 3
   document.getElementById("form3Time").textContent = selectedTimeOption;
 
+
 }
 
 document.getElementById('form1').addEventListener('submit', function(event) {
@@ -354,9 +355,30 @@ document.getElementById('form2').addEventListener('submit', function(event) {
   showForm('form3', 2);
 });
 
+
+const form2NextBtn = document.getElementById('nextButton2');
+const timeSelect = document.getElementsByName('time');
+
+
+    function checkSelection() {
+      let isChecked = false;
+      for (let i = 0; i < timeSelect.length; i++) {
+        if (timeSelect[i].checked) {
+          isChecked = true;
+          break;
+        }
+      }
+      form2NextBtn.disabled = !isChecked;
+    }
+
+    for (let i = 0; i < timeSelect.length; i++) {
+      timeSelect[i].addEventListener('change', checkSelection);
+    }
+    
 </script>
 
 <script>
+
 const isLeapYear = (year) => {
   return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
 };
@@ -403,8 +425,6 @@ const selectDay = (day) => {
   day.style.backgroundColor = 'rgba(0, 0, 0, 0.24)';
   day.style.color = '#A80CA6';
 };
-
-
 
 
 const generateCalendar = (month, year) => {

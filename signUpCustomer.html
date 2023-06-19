@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <title>Sign Up | Public User</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="assets/css/Font%20Awesome%205%20Free.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/animate.min.css">
@@ -15,77 +13,133 @@
     <link rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <style>
+        .form-group input[type="text"] {
+            width: 200px;
+        }
+        
+        .input-group-append {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+        }
 
-
+        .input-group-append span {
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            cursor: pointer;
+            height: 100%;
+        }
+    </style>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0" style="align-items: end;">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(0,0,0);">Services</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">First Item</a></li>
-                  <li><a class="dropdown-item" href="#">Second Item</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Third Item</a></li>
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0" style="align-items: end;">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(0,0,0);">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">First Item</a></li>
+                            <li><a class="dropdown-item" href="#">Second Item</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Third Item</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: rgb(0,0,0);">Branches</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">First Item</a>
+                            <a class="dropdown-item" href="#">Second Item</a>
+                            <a class="dropdown-item" href="#">Third Item</a>
+                            <span class="dropdown-item-text">Text Item</span>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointmentform.html" style="color: rgb(0,0,0);">Appointment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html" style="color: rgb(0,0,0);">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html" style="color: rgb(0,0,0);">About Us</a>
+                    </li>
                 </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: rgb(0,0,0);">Branches</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">First Item</a>
-                  <a class="dropdown-item" href="#">Second Item</a>
-                  <a class="dropdown-item" href="#">Third Item</a>
-                  <span class="dropdown-item-text">Text Item</span>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="appointmentform.html" style="color: rgb(0,0,0);">Appointment</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html" style="color: rgb(0,0,0);">Contact</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="aboutus.html" style="color: rgb(0,0,0);">About Us</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      
-    
-    <div class="fillup-form fillup-form-expand-lg">
-        <div class="container-fluid">
-            <div class="col d-sm-flex justify-content-sm-center col-expand-lg">
-                    <p style="margin-top: 30px;font-size: 25px;font-weight: bold;margin-left: 60px;margin-bottom: 30px;">Create Account</p>
-                    <div class= "signup-card">
-                        <div class="row" >
-                            <div class="column" style="justify-content: center;">
-                                <input type="text" style="border-right-color: rgb(0,0,0);border-radius: 10px;height: 40px;width: 165px;" placeholder="  First Name" required="">
-                                <input type="text" style="border-right-color: rgb(0,0,0);border-radius: 10px;padding-left: 0;height: 40px;width: 165px;" placeholder="  Last name" required="">
-                                <input type="text" style="border-right-color: rgb(0,0,0);border-radius: 10px;width: 165px;height: 40px;" placeholder="  Email Address" required="">
-                                <input type="text" class="icon-input" style="border-right-color: rgb(0,0,0);border-radius: 10px;width: 165px;height: 40px;" placeholder="  Password" required=""><i class="far fa-eye" style="transform: translateX(300px);"></i>
-                                <input type="text" style="border-right-color: rgb(0,0,0);border-radius: 10px;width: 165px;height: 40px;" placeholder="  Repeat Password" autocomplete="off" required=""><i class="far fa-eye-slash" style="transform: translateX(300px) translateY(-34px);"></i>
-                                <p style="font-size: 12px;">Already a user?<a href="publicusersignin.html" style="text-decoration: none;color: #e83d92;">Login instead</a></p><a class="btn btn-primary" role="button" >Sign Up</a>
-                            </div>
-                        </div>   
-                    </div>
             </div>
         </div>
-    </div>
+    </nav>
+    <div class="row" style="width: 1340px;">
+      <div class="col" style="width: 300px;"><img src="pics/image%204.png" style="height: 254px;margin-left: 230px;margin-top: 80px; display: block; position: inherit;""></div>
+      <div class="col" style="width: 500px;margin-left: 100px; display: block; position: inherit;">
+        <div class="signup-card">
+          <div class="row">
+              <div class="column form-group">
+                  <input type="text" class="form-control" placeholder="First Name" required="">
+              </div>
+              <div class="column form-group">
+                  <input type="text" class="form-control" placeholder="Last Name" required="">
+              </div>
+              <div class="column form-group">
+                  <input type="text" class="form-control" placeholder="Email Address" required="">
+              </div>
+              <div class="column form-group">
+                  <div class="input-group" style="position: relative; width: 200px;">
+                      <input type="password" class="form-control" id="passwordInput" placeholder="Password" required="">
+                      <div class="input-group-append">
+                          <span class="input-group-text" id="passwordToggle"><i class="far fa-eye"></i></span>
+                      </div>
+                  </div>
+              </div>
+              <div class="column form-group">
+                  <div class="input-group" style="position: relative; width: 200px;">
+                      <input type="password" class="form-control" id="repeatPasswordInput" placeholder="Repeat Password" autocomplete="off" required="">
+                      <div class="input-group-append">
+                          <span class="input-group-text" id="repeatPasswordToggle"><i class="far fa-eye"></i></span>
+                      </div>
+                  </div>
+              </div>
+              <p style="font-size: 12px;">Already a user? <a href="publicusersignin.html" style="text-decoration: none;color: #e83d92;">Login instead</a></p>
+              <a class="btn btn-primary" role="button" style="margin-left: 10px; width: 150px; background-color: #045B62; border: none;">Sign Up</a>
+          </div>
+      </div>
+      </div>
+  </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        const passwordToggle = document.getElementById("passwordToggle");
+        const passwordInput = document.getElementById("passwordInput");
+        const repeatPasswordToggle = document.getElementById("repeatPasswordToggle");
+        const repeatPasswordInput = document.getElementById("repeatPasswordInput");
 
+        passwordToggle.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordToggle.innerHTML = '<i class="far fa-eye-slash"></i>';
+            } else {
+                passwordInput.type = "password";
+                passwordToggle.innerHTML = '<i class="far fa-eye"></i>';
+            }
+        });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        repeatPasswordToggle.addEventListener("click", function () {
+            if (repeatPasswordInput.type === "password") {
+                repeatPasswordInput.type = "text";
+                repeatPasswordToggle.innerHTML = '<i class="far fa-eye-slash"></i>';
+            } else {
+                repeatPasswordInput.type = "password";
+                repeatPasswordToggle.innerHTML = '<i class="far fa-eye"></i>';
+            }
+        });
+    </script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>
