@@ -19,7 +19,7 @@ document.getElementById("signinpublicForm").addEventListener("submit", function(
 
   if (email === "haru22@gmail.com" && password === "password") {
       window.location.href = 'HomeSignedIn.html';
-  } else if (email === "admin") {
+  } else if (email === "haru22@gmail.com") {
       document.getElementById('errorMessage').textContent = 'Incorrect password.';
   } else if (password === "password") {
       document.getElementById('errorMessage').textContent = 'Email not found in records.';
@@ -34,21 +34,7 @@ document.getElementById("signupButton").addEventListener("click", function() {
   window.location.href = 'signUpCustomer.html';
 });
 
-function togglePasswordVisibility() {
-    var passwordInput = document.getElementById("password");
-    var toggleIcon = document.querySelector(".toggle-password i");
-  
-    if (passwordInput.type === "password") {
-      passwordInput.type = "text";
-      toggleIcon.classList.remove("fa-eye");
-      toggleIcon.classList.add("fa-eye-slash");
-    } else {
-      passwordInput.type = "password";
-      toggleIcon.classList.remove("fa-eye-slash");
-      toggleIcon.classList.add("fa-eye");
-    }
-  }
-  $('.dropdown').on('click', function (event) {
+$('.dropdown').on('click', function (event) {
     event.stopPropagation(); // Prevent event bubbling
     var parentElement = $(this).closest('.form-group');
     var dropdownMenu = parentElement.find('.dropdown-menu');
@@ -59,4 +45,3 @@ function togglePasswordVisibility() {
     // Toggle the clicked dropdown
     dropdownMenu.toggleClass('open');
 });
-

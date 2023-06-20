@@ -1,145 +1,212 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <title>Sign Up | Public User</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/Font%20Awesome%205%20Free.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="toggle.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <style>
-        .form-group input[type="text"] {
-            width: 200px;
-        }
-        
-        .input-group-append {
-            position: absolute;
-            right: 0;
-            top: 0;
-            height: 100%;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Public User</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/Navbar-Right-Links-icons.css">
+  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+  <style>
+
+    /*index*/
+    .navbar {
+    border-bottom: 3px ridge rgba(33,37,41,0.17);
+    }
+    .logo-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .logo-section .text-end {
+    display: flex;
+    align-items: center;
+    }
+
+    .logo-section img {
+      width: 180px;
+    }
+
+    .texts {
+      text-align: center;
+    }
+
+    .mt-4 {
+      margin-top: 1rem;
+    }
+
+    .mb-3 {
+      margin-bottom: 0.75rem;
+    }
+
+    .text-start {
+      text-align: left;
+    }
+
+    .error-message {
+      color: red;
+    }
+
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        border: none;
+        background: none;
         }
 
-        .input-group-append span {
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            cursor: pointer;
-            height: 100%;
-        }
-    </style>
+    .sign-in-button {
+        background: #F9F9F9;
+        border: 0.5px solid rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 1px 2px rgba(28, 28, 28, 0.05);
+        color: black;
+        padding: 5px 10px;
+        font-size: 14px;
+        text-decoration: none;
+        border-radius: 12px;
+    }
+    .sign-in-button:hover {
+      background-color: #045B62;
+      color: white;
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+              <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0" style="align-items: end;">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(0,0,0);">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">First Item</a></li>
-                            <li><a class="dropdown-item" href="#">Second Item</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Third Item</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: rgb(0,0,0);">Branches</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">First Item</a>
-                            <a class="dropdown-item" href="#">Second Item</a>
-                            <a class="dropdown-item" href="#">Third Item</a>
-                            <span class="dropdown-item-text">Text Item</span>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="appointmentform.html" style="color: rgb(0,0,0);">Appointment</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html" style="color: rgb(0,0,0);">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html" style="color: rgb(0,0,0);">About Us</a>
-                    </li>
-                </ul>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">First Item</a></li>
+                    <li><a class="dropdown-item" href="#">Second Item</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Third Item</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#">Branches</a>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">First Item</a>
+                    <a class="dropdown-item" href="#">Second Item</a>
+                    <a class="dropdown-item" href="#">Third Item</a>
+                    <span class="dropdown-item-text">Text Item</span>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="appointmentform-1.html">Appointment</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About Us</a>
+                </li>
+              </ul>
             </div>
-        </div>
-    </nav>
-    <div class="row" style="width: 1340px;">
-      <div class="col" style="width: 300px;"><img src="pics/image%204.png" style="height: 254px;margin-left: 230px;margin-top: 80px; display: block; position: inherit;""></div>
-      <div class="col" style="width: 500px;margin-left: 100px; display: block; position: inherit;">
-        <div class="signup-card">
-          <div class="row">
-              <div class="column form-group">
-                  <input type="text" class="form-control" placeholder="First Name" required="">
-              </div>
-              <div class="column form-group">
-                  <input type="text" class="form-control" placeholder="Last Name" required="">
-              </div>
-              <div class="column form-group">
-                  <input type="text" class="form-control" placeholder="Email Address" required="">
-              </div>
-              <div class="column form-group">
-                  <div class="input-group" style="position: relative; width: 200px;">
-                      <input type="password" class="form-control" id="passwordInput" placeholder="Password" required="">
-                      <div class="input-group-append">
-                          <span class="input-group-text" id="passwordToggle"><i class="far fa-eye"></i></span>
-                      </div>
-                  </div>
-              </div>
-              <div class="column form-group">
-                  <div class="input-group" style="position: relative; width: 200px;">
-                      <input type="password" class="form-control" id="repeatPasswordInput" placeholder="Repeat Password" autocomplete="off" required="">
-                      <div class="input-group-append">
-                          <span class="input-group-text" id="repeatPasswordToggle"><i class="far fa-eye"></i></span>
-                      </div>
-                  </div>
-              </div>
-              <p style="font-size: 12px;">Already a user? <a href="publicusersignin.html" style="text-decoration: none;color: #e83d92;">Login instead</a></p>
-              <a class="btn btn-primary" role="button" style="margin-left: 10px; width: 150px; background-color: #045B62; border: none;">Sign Up</a>
           </div>
-      </div>
-      </div>
-  </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script>
-        const passwordToggle = document.getElementById("passwordToggle");
-        const passwordInput = document.getElementById("passwordInput");
-        const repeatPasswordToggle = document.getElementById("repeatPasswordToggle");
-        const repeatPasswordInput = document.getElementById("repeatPasswordInput");
+        </nav>
+      </header>
 
-        passwordToggle.addEventListener("click", function () {
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                passwordToggle.innerHTML = '<i class="far fa-eye-slash"></i>';
-            } else {
-                passwordInput.type = "password";
-                passwordToggle.innerHTML = '<i class="far fa-eye"></i>';
-            }
-        });
+  <main class="container-fluid main-container">
+    <div class="row">
+      <div class="col-md-7" style="background: #d1d1d1;">
+        <img src="UI/Sign Up.png" alt="Logo" class="img-fluid mt-4" style="max-height: 600px; margin-left: 150px;">
+      </div>
+      <div class="col-md-5">
+        <div class="signin-section mt-4">
+          <div class="logo-section">
+            <div class="text-start">
+              <img src="UI/Frame 416.png" alt="Logo">
+            </div>
+            <div class="text-end">
+                <span style="margin-right: 15px;">Already a user?</span>
+                <a href="publicusersignin.html" class="sign-in-button">Sign In</a>
+              </div>
+          </div>
+          <div class="texts">
+            <h2 class="mt-4 mb-3 text-start">WELCOME TO THE FAMILY!</h2>
+            <p class="text-start">Register your account</p>
+          </div>
+          <form id="signupForm">
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <input class="form-control" type="text" id="firstName" placeholder="First Name" required>
+                </div>
+                <div class="col">
+                  <input class="form-control" type="text" id="lastName" placeholder="Last Name" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" type="password" id="password" placeholder="Password" required>
+                <span class="input-group-text input-group-text toggle-password" onclick="togglePasswordVisibility('password', 0)">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control" type="password" id="repeatPassword" placeholder="Repeat Password" required>
+                <span class="input-group-text input-group-text toggle-password" onclick="togglePasswordVisibility('repeatPassword', 1)">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </div>
+            </div>
+            <div class="text-center">
+              <p id="errorMessage" class="error-message mt-3"></p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <div>
+                <button type="submit" class="btn btn-primary" style="background: #045B62; border: none; box-shadow: 0px 1px 2px rgba(28, 28, 28, 0.05); border-radius: 12px; flex: none; order: 1; flex-grow: 0;">Sign Up</button>
+            </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
 
-        repeatPasswordToggle.addEventListener("click", function () {
-            if (repeatPasswordInput.type === "password") {
-                repeatPasswordInput.type = "text";
-                repeatPasswordToggle.innerHTML = '<i class="far fa-eye-slash"></i>';
-            } else {
-                repeatPasswordInput.type = "password";
-                repeatPasswordToggle.innerHTML = '<i class="far fa-eye"></i>';
-            }
-        });
-    </script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    function togglePasswordVisibility(fieldId, iconIndex) {
+      const passwordField = document.getElementById(fieldId);
+      const eyeIcon = document.querySelectorAll('.toggle-password i')[iconIndex];
+  
+      if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+      } else {
+        passwordField.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+      }
+    }
+  </script>
 </body>
+
 </html>
