@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      height: 600px;
+    }
+
+    .section1 {
+      flex: 20%;
+      background-color: lightblue;
+      display: flex;
+    }
+
+    .column {
+      flex: 1;
+      height: 600px;
+    }
+
+    .column1 {
+      background-color: lightgray;
+      width: 20%;
+    }
+
+    .column2 {
+      background-color: gray;
+      width: 80%;
+    }
+
+    .column3 {
+      background-color: darkgray;
+      width: 20%;
+    }
+
+    .section2 {
+      flex: 60%;
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="section1">
+      <div class="column column1"></div>
+      <div class="column column2"></div>
+      <div class="column column3"></div>
+    </div>
+    <div class="section2"></div>
+  </div>
+</body>
+</html>

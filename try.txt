@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Profile Page</title>
+  <style>
+    body {
+      display: flex;
+      font-family: Arial, sans-serif;
+    }
+    
+    nav {
+      flex-basis: 20%;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }
+    
+    a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .content {
+      flex-basis: 80%;
+      padding: 20px;
+    }
+    
+    .profile-content {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .edit-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #888;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#profile">My Profile</a></li>
+      <li><a href="#notifications">Notifications</a></li>
+      <li><a href="#pet-info">Pet Information</a></li>
+      <li><a href="#password">Password and Security</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <div id="profile" class="profile-content">
+      <h2>My Profile</h2>
+      <a href="#" class="edit-icon">&#9998;</a>
+      <p>First Name: <input type="text" placeholder="First Name"></p>
+      <p>Last Name: <input type="text" placeholder="Last Name"></p>
+      <p>Email: <input type="email" placeholder="Email"></p>
+      <p>Contact Number: <input type="tel" placeholder="Contact Number"></p>
+    </div>
+    
+    <div id="notifications" class="profile-content">
+      <h2>Notifications</h2>
+      <p>This section contains the notifications content.</p>
+    </div>
+    
+    <div id="pet-info" class="profile-content">
+      <h2>Pet Information</h2>
+      <p>This section contains the pet information content.</p>
+    </div>
+    
+    <div id="password" class="profile-content">
+      <h2>Password and Security</h2>
+      <p>This section contains the password and security content.</p>
+    </div>
+  </div>
+</body>
+</html>
