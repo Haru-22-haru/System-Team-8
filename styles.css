@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 /*index*/
 .navbar {
   border-bottom: 3px ridge rgba(33,37,41,0.17);
@@ -93,4 +96,39 @@ main {
   margin-top: 15px;
   margin-bottom: 5px;
   text-align: center;
+}
+
+
+/*appointmentform-1.html*/
+/*appointmentform-1.html*/
+/*appointmentform-1.html*/
+.container-main{
+  justify-content: center; 
+  align-items: center; 
+  height: 700px;
+}
+.book-appointment-btn {
+  --stylized-start-color: #48A0A7;
+      --stylized-end-color: #086971;
+      background: linear-gradient(75deg, var(--stylized-start-color) 32.75%, var(--stylized-end-color) 100%);
+      box-shadow: 0px 1px 2px 0px rgba(28, 28, 28, 0.05);
+      text-decoration: none;
+      border: none;
+      color: white;
+      border-radius: 12px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      text-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.10);
+      font-size: 16px;
+      font-family: Montserrat;
+      font-weight: 700;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+      margin-top: 20px;
+}
+
+.book-appointment-btn:hover {
+  --stylized-start-color: #086971;
+  --stylized-end-color: #48A0A7;
+  background: linear-gradient(75deg, var(--stylized-start-color) 32.75%, var(--stylized-end-color) 100%);
+  color: white;
 }
