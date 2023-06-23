@@ -38,6 +38,9 @@
         .sidebar li {
             margin-bottom: 10px;
         }
+        .sidebar li:hover a {
+            color: #010101;
+        }
         .sidebar a {
             text-decoration: none;
             color: #045B62;
@@ -248,7 +251,7 @@
         }
     </style>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
             const tabs = document.querySelectorAll(".tab");
             const tabContents = document.querySelectorAll(".tab-content");
 
@@ -283,6 +286,40 @@
                 });
             });
         });
+
+        function toggleCheckboxes(checkbox) {
+            const table = checkbox.closest('table');
+            const checkboxes = table.querySelectorAll('tbody input[type="checkbox"]');
+            checkboxes.forEach((checkbox) => {
+                checkbox.checked = checkbox.checked !== true;
+            });
+        }
+
+        function acceptSelectedAppointments() {
+            const pendingTable = document.querySelector('#pending table');
+            const approvedTable = document.querySelector('#approved table');
+            const checkboxes = pendingTable.querySelectorAll('tbody input[type="checkbox"]:checked');
+
+            checkboxes.forEach((checkbox) => {
+                const row = checkbox.closest('tr');
+                const clonedRow = row.cloneNode(true);
+                approvedTable.querySelector('tbody').appendChild(clonedRow);
+                row.remove();
+            });
+        }  
+        function rejectSelectedAppointments() {
+            const pendingTable = document.querySelector('#pending table');
+            const rejectedTable = document.querySelector('#rejected table');
+            const checkboxes = pendingTable.querySelectorAll('tbody input[type="checkbox"]:checked');
+
+            checkboxes.forEach((checkbox) => {
+                const row = checkbox.closest('tr');
+                const clonedRow = row.cloneNode(true);
+                rejectedTable.querySelector('tbody').appendChild(clonedRow);
+                row.remove();
+            });
+        }
+
     </script>
 </head>
 
@@ -341,7 +378,7 @@
                     <div>
                         <table>
                             <thead>
-                                <tr>
+                                <tr><th><input type="checkbox" id="select-all" onclick="toggleCheckboxes(this)"></th>
                                     <th>No.</th>
                                     <th>ID</th>
                                     <th>Pet Name</th>
@@ -353,6 +390,7 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>001</td>
                                     <td>300</td>
                                     <td>Rex</td>
@@ -362,6 +400,7 @@
                                     <td>Approved</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>002</td>
                                     <td>458</td>
                                     <td>Fluffy</td>
@@ -371,6 +410,7 @@
                                     <td>Approved</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>003</td>
                                     <td>459</td>
                                     <td>Fluffy</td>
@@ -380,6 +420,7 @@
                                     <td>Approved</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>004</td>
                                     <td>460</td>
                                     <td>Fluffy</td>
@@ -389,6 +430,7 @@
                                     <td>Approved</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>005</td>
                                     <td>461</td>
                                     <td>Fluffy</td>
@@ -398,6 +440,7 @@
                                     <td>Approved</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>006</td>
                                     <td>462</td>
                                     <td>Fluffy</td>
@@ -407,6 +450,7 @@
                                     <td>Approved</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>007</td>
                                     <td>463</td>
                                     <td>Fluffy</td>
@@ -415,7 +459,7 @@
                                     <td>02:00 PM</td>
                                     <td>Approved</td>
                                 </tr>
-                                <tr>
+                                <tr><td><input type="checkbox"></td>
                                     <td>008</td>
                                     <td>464</td>
                                     <td>Fluffy</td>
@@ -425,6 +469,7 @@
                                     <td>Approved</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>009</td>
                                     <td>465</td>
                                     <td>Fluffy</td>
@@ -434,6 +479,7 @@
                                     <td>Approved</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>010</td>
                                     <td>466</td>
                                     <td>Fluffy</td>
@@ -452,7 +498,7 @@
                             <h2>Pending Appointments</h2>
                         </div>
                         <div class="header-right">
-                            <div class="action-buttons"><button class="accept-button">Accept<img src="UI/eks.svg"></button><button class="reject-button">Reject<img src="UI/check.svg"></button></div>
+                            <div class="action-buttons"><button class="accept-button" id="accept-button" onclick="acceptSelectedAppointments()">Accept<img src="UI/eks.svg"></button><button class="reject-button" onclick="rejectSelectedAppointments()">Reject<img src="UI/check.svg"></button></div>
                             <div class="search-container">
                                 <div class="search-bar"><input type="text" placeholder="Search...">
                                     <div class="search-icon" style="background: none; border: none;"><span>🔍</span></div>
@@ -469,7 +515,7 @@
                     <div>
                         <table>
                             <thead>
-                                <tr>
+                                <tr><th><input type="checkbox" id="select-all" onclick="toggleCheckboxes(this)"></th>
                                     <th>No.</th>
                                     <th>Pet Name</th>
                                     <th>Owner Name</th>
@@ -480,6 +526,7 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>001</td>
                                     <td>Buddy</td>
                                     <td>Sarah Johnson</td>
@@ -488,6 +535,7 @@
                                     <td>Pending</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>002</td>
                                     <td>Hield</td>
                                     <td>Jack</td>
@@ -496,6 +544,7 @@
                                     <td>Pending</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>003</td>
                                     <td>Nantes</td>
                                     <td>Joesary</td>
@@ -504,6 +553,7 @@
                                     <td>Pending</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>004</td>
                                     <td>Nestea</td>
                                     <td>Nesfruita</td>
@@ -512,6 +562,7 @@
                                     <td>Pending</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>005</td>
                                     <td>Jack</td>
                                     <td>Roberto</td>
@@ -520,6 +571,7 @@
                                     <td>Pending</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>006</td>
                                     <td>Tom</td>
                                     <td>Holland</td>
@@ -528,6 +580,7 @@
                                     <td>Pending</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>007</td>
                                     <td>Tobby</td>
                                     <td>Maguire</td>
@@ -561,7 +614,7 @@
                     <div>
                         <table>
                             <thead>
-                                <tr>
+                                <tr><th><input type="checkbox" id="select-all" onclick="toggleCheckboxes(this)"></th>
                                     <th>No.</th>
                                     <th>ID</th>
                                     <th>Pet Name</th>
@@ -573,6 +626,7 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>001</td>
                                     <td>987</td>
                                     <td>Max</td>
@@ -582,6 +636,7 @@
                                     <td>Rejected</td>
                                 </tr>
                                 <tr>
+                                    <td><input type="checkbox"></td>
                                     <td>002</td>
                                     <td>999</td>
                                     <td>Harold</td>
