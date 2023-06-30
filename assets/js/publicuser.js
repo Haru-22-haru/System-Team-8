@@ -10,7 +10,7 @@ function hideWaitNotice() {
     waitNotice.classList.add('hidden');
 }
 
-document.getElementById("signinpublicForm").addEventListener("submit", function(event) {
+document.getElementById("signin_Form").addEventListener("submit", function(event) {
   event.preventDefault(); // Prevent form submission
 
   var email = document.getElementById("email").value;
@@ -18,7 +18,7 @@ document.getElementById("signinpublicForm").addEventListener("submit", function(
 
 
   if (email === "haru22@gmail.com" && password === "password") {
-      window.location.href = 'signedin.html';
+      window.location.href = 'customer_signedin.html';
   } else if (email === "admin") {
       document.getElementById('errorMessage').textContent = 'Incorrect password.';
   } else if (password === "password") {
